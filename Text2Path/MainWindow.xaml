@@ -1,0 +1,105 @@
+﻿<Controls:MetroWindow x:Class="Text2Path.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      Title="Text2Path" 
+                      Height="500"
+                      Width="660"
+                      ShowMinButton="False"
+                      ShowMaxRestoreButton="False"
+                      ShowIconOnTitleBar="true"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="ComboBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Height" Value="30" />
+            </Style>
+
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Height" Value="30" />
+            </Style>
+
+        </ResourceDictionary>
+        
+    </Controls:MetroWindow.Resources>
+
+    <Controls:MetroWindow.WindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="BlogButton" Content="blog" Click="BlogButton_Click" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.WindowCommands>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Text:" Grid.Column="0" Grid.Row="0" />
+        <TextBox x:Name="TextTextBlock" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" />
+        <Button x:Name="ConvertButton" Grid.Column="4" Grid.Row="0" Content="Convert" Click="ConvertButton_Click" VerticalAlignment="Top" Margin="10"/>
+
+        <TextBlock Text="Culture:" Grid.Column="0" Grid.Row="1" />
+        <ComboBox x:Name="CultureComboBox" Grid.Column="1" Grid.Row="1"  />
+
+        <TextBlock Text="Direction:" Grid.Column="2" Grid.Row="1" />
+        <ComboBox x:Name="DirectionComboBox" Grid.Column="3" Grid.Row="1" IsReadOnly="True" />
+
+        <TextBlock Text="Font:" Grid.Column="0" Grid.Row="2"  />
+        <ComboBox x:Name="FontComboBox" Grid.Column="1" Grid.Row="2"  />
+
+        <TextBlock Text="Font Size:" Grid.Column="2" Grid.Row="2"  />
+        <ComboBox x:Name="FontSizeComboBox" Grid.Column="3" Grid.Row="2" />
+
+        <TextBlock Text="Result:" Grid.Row="3" VerticalAlignment="Top"  Visibility="Collapsed"/>
+        <Path x:Name="OutputPath" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+              Stroke="Black" Fill="Black"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="PathTextBlock" Text="Path:" Grid.Row="4" VerticalAlignment="Top"  Visibility="Collapsed"/>
+        <TextBox x:Name="OutputTextBox" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="4" 
+                 IsReadOnly="True"
+                 VerticalAlignment="Stretch"
+                 Visibility="Collapsed"
+                 TextWrapping="WrapWithOverflow"         
+                 FontSize="12"
+                 Height="180"/>
+
+        <Button x:Name="CopyButton" Visibility="Collapsed" Grid.Column="4" Grid.Row="4" Content="Copy" Click="CopyButton_Click" VerticalAlignment="Top" Margin="10"/>
+        <TextBlock x:Name="ClipboardResponse" Grid.Column="4" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12" Foreground="Red" Margin="0,60,0,0"/>
+
+    </Grid>
+</Controls:MetroWindow>
