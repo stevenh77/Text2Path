@@ -6,4 +6,4 @@ Source code:  [https://github.com/stevenh77/text2path](https://github.com/steven
 
 # Screenshots
 
-![Text2Path](http://http://stevenhollidge.com/blog-source-code/clickonce/text2path/text2path.png)
+![Text2Path](http://stevenhollidge.com/blog-source-code/clickonce/text2path/text2path.png)
